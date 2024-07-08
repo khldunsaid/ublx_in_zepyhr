@@ -15,3 +15,8 @@ manifest:
       repo-path: sdk-nrf
       revision: main
       import: true
+    - name: ubxlib
+      url: https://github.com/u-blox/ubxlib.git
+      revision: 05f4af4287e9c80f45e5272ca2e3d4bafb4a66ad # tag 1.4.0
+      path: modules/lib/ubxlib
+      import: true
