@@ -1,0 +1,46 @@
+/ {
+	cfg-device-cellular {
+        compatible = "u-blox,ubxlib-device-cellular";
+        status = "okay";
+        transport-type = "uart0";
+        module-type = "U_CELL_MODULE_TYPE_LENA_R8";
+        pin-pwr-on = <10>;
+        pin-vint = <35>;
+        network = <&label_cfg_network_cellular_thingstream &label_cfg_network_gnss_inside>;
+    };
+    cfg-device-gnss {
+        compatible = "u-blox,ubxlib-device-gnss";
+        status = "okay";
+        transport-type = "uart1";
+        module-type = "U_GNSS_MODULE_TYPE_M10";
+    };
+
+
+    label_cfg_network_cellular_1nce: cfg-network-cellular-1nce {
+        compatible = "u-blox,ubxlib-network-cellular";
+        status = "okay";
+        apn = "iot.1nce.net";
+    };
+
+    label_cfg_network_cellular_thingstream: cfg-network-cellular-thingstream {
+        compatible = "u-blox,ubxlib-network-cellular";
+        status = "okay";
+        apn = "tsiot";
+    };
+
+    label_cfg_network_gnss_inside: cfg-network-gnss-inside {
+        compatible = "u-blox,ubxlib-network-gnss";
+        status = "okay";
+        module-type = "U_GNSS_MODULE_TYPE_M10";
+    };
+};
+
+&uart0 {
+    compatible = "nordic,nrf-uarte";
+    status = "okay";
+};
+
+&uart1 {
+    compatible = "nordic,nrf-uarte";
+    status = "okay";
+};
